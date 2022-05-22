@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="toggleShow">{{ isActive }}</button>
+    <transition name="fade">
+      <div v-show="isShow">表示しています。</div>
+    </transition>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          myText: ['表示', '非表示'],
+          active: 0,
+          isShow: false
+        }
+      },
+      computed: {
+        isActive() {
+          return this.myText[this.active]
+        }
+      },
+      methods: {
+        toggleShow() {
+          this.isShow = !this.isShow
+          this.changeActive()
+        },
+        changeActive() {
+          this.active++
+          this.active = this.active % this.myText.length
+        }
+      }
+    })
+  </script>
+</body>
+</html>
