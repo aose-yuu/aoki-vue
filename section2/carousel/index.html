@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="carousel">
+      <div class="flex">
+        <div @click="prev"
+          class="carousel__prev">
+          <i class="fas fa-angle-left fa-5x"></i>
+        </div>
+        <transition name="fade" mode="out-in">
+          <div class="carousel__main"
+            :key="images[active].id"
+            :v-show="active === images[active].id"
+          >
+            <img :src="images[active].path">
+          </div>
+        </transition>
+        <div @click="next"
+          class="carousel__next">
+          <i class="fas fa-angle-right fa-5x"></i>
+        </div>
+      </div>
+      <div class="carousel__thumbnails">
+        <li v-for="image in images"
+          :key="image.id"
+          :class="{current: active === image.id}"
+          @click="current(image.id)">
+          <img :src="image.path">
+        </li>
+      </div>
+    </div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          active: 0,
+          images: [
+            {id: 0, path: 'images/cat-ga13383e33_640.jpg'},
+            {id: 1, path: 'images/cat-gf50d68246_640.jpg'},
+            {id: 2, path: 'images/kitten-g7eb775ace_640.jpg'},
+            {id: 3, path: 'images/kitten-gfb4f35b71_640.jpg'}
+          ]
+        }
+      },
+      methods: {
+        current(id) {
+          this.active = id
+        },
+        prev() {
+          if (this.active <= 0) {
+            this.active = this.images.length - 1
+          } else {
+            this.active--
+          }
+        },
+        next() {
+          if (this.active >= this.images.length - 1) {
+            this.active = 0
+          } else {
+            this.active++
+          }
+        }
+      },
+      mounted() {
+        let that = this
+        setInterval(() => {
+          that.next()
+        }, 4000)
+      }
+    })
+  </script>
+</body>
+</html>

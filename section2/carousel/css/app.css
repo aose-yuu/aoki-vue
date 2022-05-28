@@ -1,0 +1,72 @@
+.carousel {
+  width: 840px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+.carousel__main > img {
+  width: 640px;
+  height: 400px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.carousel__prev {
+  cursor: pointer;
+  color: lightgray;
+}
+.carousel__prev:hover {
+  opacity: 0.8;
+}
+.carousel__next {
+  cursor: pointer;
+  color: lightgray;
+}
+.carousel__next:hover {
+  opacity: 0.8;
+}
+.carousel__thumbnails {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+.carousel__thumbnails li {
+  cursor: pointer;
+  opacity: 0.4;
+}
+.carousel__thumbnails li:hover {
+  opacity: 1;
+}
+.carousel__thumbnails li.current {
+  opacity: 1;
+}
+.carousel__thumbnails img {
+  width: 80px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+/*# sourceMappingURL=app.css.map */
