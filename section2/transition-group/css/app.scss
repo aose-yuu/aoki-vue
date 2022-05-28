@@ -1,0 +1,26 @@
+.list {
+  &-item {
+    display: inline-block;
+    margin-right: 10px;
+    &-move {
+      transition: transform 1s;
+    }
+  }
+  &-enter {
+    opacity: 0;
+    transform: translateY(30px);
+    &-active {
+      transition: all 1s;
+    }
+  }
+  &-leave {
+    &-active {
+      transition: all 3s;
+      position: absolute;
+    }
+    &-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+}

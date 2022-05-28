@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="toggleIsShow">画像を見る</button>
+    <transition name="fade">
+      <div v-show="isShow">
+        <div class="modal__inner">
+          <img src="./image01.jpg" alt="sunset">
+        </div>
+        <div class="modal__background"
+          @click="toggleIsShow"></div>
+      </div>
+    </transition>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          isShow: false
+        }
+      },
+      methods: {
+        toggleIsShow() {
+          this.isShow = !this.isShow
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-item-move {
+  transition: transform 1s;
+}
+.list-enter {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-enter-active {
+  transition: all 1s;
+}
+.list-leave-active {
+  transition: all 1s;
+  position: absolute;
+}
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/*# sourceMappingURL=app.css.map */
